@@ -1123,6 +1123,10 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -1132,48 +1136,391 @@
             }
 
             .hero {
-                padding: 120px 0 60px;
+                padding: 100px 0 50px;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .hero-text {
+                font-size: 1rem;
+            }
+
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
+
+            .hero-features {
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .hero-features span {
+                font-size: 0.85rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .hero-image {
+                height: 280px;
             }
 
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .section-tag {
+                font-size: 0.8rem;
+                padding: 6px 16px;
             }
 
             .steps-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .step-card {
+                padding: 24px 16px;
+            }
+
+            .step-number {
+                width: 56px;
+                height: 56px;
+                font-size: 1.4rem;
+            }
+
+            .step-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .service-card {
+                padding: 28px 20px;
+            }
+
+            .service-emoji {
+                font-size: 2.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-features span {
+                font-size: 0.8rem;
+                padding: 6px 12px;
             }
 
             .about-stats {
                 position: static;
                 margin-top: 20px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                padding: 16px;
+            }
+
+            .stat strong {
+                font-size: 1.5rem;
+            }
+
+            .stat span {
+                font-size: 0.75rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-list-item {
+                gap: 12px;
+            }
+
+            .about-list-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .testimonial-card {
+                padding: 24px 20px;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+            }
+
+            .faq-question {
+                padding: 18px 20px;
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 20px 18px;
+                font-size: 0.95rem;
+            }
+
+            .cta {
+                padding: 80px 0;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta p {
+                font-size: 1rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 24px 20px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
             }
 
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px 14px;
+                font-size: 16px; /* Prevents iOS zoom */
+            }
+
+            .trust-bar {
+                padding: 20px 0;
+            }
+
+            .trust-inner {
+                gap: 20px;
+                flex-direction: column;
+            }
+
+            .trust-item {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 0 16px;
+            }
+
+            .trust-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .trust-text {
+                font-size: 0.85rem;
+            }
+
+            .trust-text strong {
+                font-size: 1rem;
+            }
+
+            .gallery {
+                padding: 60px 0;
+            }
+
+            .gallery-track img {
+                width: 220px;
+                height: 160px;
+            }
+
+            .footer {
+                padding: 50px 0 30px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer h4 {
+                margin-bottom: 16px;
             }
 
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
+                gap: 16px;
             }
 
-            .trust-inner {
-                gap: 30px;
+            .footer-acknowledgement {
+                flex-direction: column;
+                gap: 8px;
             }
 
-            .gallery-track img {
-                width: 260px;
-                height: 180px;
+            .float-whatsapp {
+                width: 54px;
+                height: 54px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
             }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 90px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero-image {
+                height: 240px;
+                border-radius: 16px;
+            }
+
+            .hero-image-wrapper {
+                border-radius: 16px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .how-it-works,
+            .services,
+            .about,
+            .testimonials,
+            .faq,
+            .contact {
+                padding: 60px 0;
+            }
+
+            .service-card {
+                padding: 24px 16px;
+            }
+
+            .about-image img {
+                height: 300px;
+            }
+
+            .contact-method {
+                gap: 12px;
+            }
+
+            .contact-method-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Touch-friendly tap targets */
+        @media (hover: none) and (pointer: coarse) {
+            .btn {
+                min-height: 48px;
+            }
+
+            .nav-links a {
+                padding: 12px 8px;
+            }
+
+            .faq-question {
+                min-height: 56px;
+            }
+
+            .footer-links a {
+                display: inline-block;
+                padding: 8px 0;
+            }
+
+            .footer-social a {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        /* Improve mobile nav */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            z-index: 1001;
+            flex-direction: column;
+            padding: 80px 24px 40px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 16px 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .mobile-menu-links .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 16px;
+            border-radius: 50px;
+            margin-top: 16px;
+            border: none;
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 8px;
         }
     </style>
 </head>
@@ -1202,6 +1549,19 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose">×</button>
+        <ul class="mobile-menu-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact" class="nav-cta">Book Now</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1686,6 +2046,29 @@
     <a href="https://api.whatsapp.com/send?phone=61484678967" class="float-whatsapp" target="_blank" title="Chat on WhatsApp">💬</a>
 
     <script>
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1706,6 +2089,18 @@
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you! Chef Anthony will contact you within 24 hours.');
+        });
+
+        // Prevent iOS zoom on input focus
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                document.querySelector('meta[name="viewport"]').setAttribute('content', 
+                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+            });
+            el.addEventListener('blur', () => {
+                document.querySelector('meta[name="viewport"]').setAttribute('content', 
+                    'width=device-width, initial-scale=1.0');
+            });
         });
     </script>
 </body>
