@@ -34,6 +34,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -43,6 +44,65 @@
             line-height: 1.7;
             font-size: 16px;
         }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
 
         h1, h2, h3, h4 {
             font-family: 'DM Serif Display', serif;
@@ -2069,13 +2129,20 @@
             });
         });
 
-        // Smooth scroll
+        // Smooth scroll with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const navHeight = document.querySelector('.nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
@@ -2085,10 +2152,43 @@
             document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Form submit
+        // Scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-up, .fade-in, .slide-left, .slide-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submit with better feedback
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! Chef Anthony will contact you within 24 hours.');
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '✓ Request Sent!';
+                btn.style.background = '#2d5a4a';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                    this.reset();
+                }, 2000);
+            }, 1000);
         });
 
         // Prevent iOS zoom on input focus
@@ -2100,6 +2200,53 @@
             el.addEventListener('blur', () => {
                 document.querySelector('meta[name="viewport"]').setAttribute('content', 
                     'width=device-width, initial-scale=1.0');
+            });
+        });
+
+        // Add animation classes to elements on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Section headers
+            document.querySelectorAll('.section-header').forEach(el => el.classList.add('fade-up'));
+            
+            // Service cards with stagger
+            document.querySelectorAll('.service-card').forEach((el, i) => {
+                el.classList.add('fade-up', `stagger-${(i % 4) + 1}`);
+            });
+            
+            // Step cards with stagger
+            document.querySelectorAll('.step-card').forEach((el, i) => {
+                el.classList.add('scale-in', `stagger-${(i % 4) + 1}`);
+            });
+            
+            // Testimonial cards
+            document.querySelectorAll('.testimonial-card').forEach((el, i) => {
+                el.classList.add('fade-up', `stagger-${(i % 4) + 1}`);
+            });
+            
+            // FAQ items
+            document.querySelectorAll('.faq-item').forEach((el, i) => {
+                el.classList.add('fade-up', `stagger-${(i % 4) + 1}`);
+            });
+            
+            // About section
+            document.querySelectorAll('.about-image').forEach(el => el.classList.add('slide-left'));
+            document.querySelectorAll('.about-content').forEach(el => el.classList.add('slide-right'));
+            
+            // Contact section
+            document.querySelectorAll('.contact-info').forEach(el => el.classList.add('slide-left'));
+            document.querySelectorAll('.contact-form').forEach(el => el.classList.add('slide-right'));
+            
+            // CTA
+            document.querySelectorAll('.cta-content').forEach(el => el.classList.add('fade-up'));
+            
+            // Trust items
+            document.querySelectorAll('.trust-item').forEach((el, i) => {
+                el.classList.add('fade-in', `stagger-${(i % 4) + 1}`);
+            });
+            
+            // Re-observe after adding classes
+            document.querySelectorAll('.fade-up, .fade-in, .slide-left, .slide-right, .scale-in').forEach(el => {
+                observer.observe(el);
             });
         });
     </script>
