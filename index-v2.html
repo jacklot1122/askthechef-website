@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask The Chef | Private Chef Experience — In Your Own Home | Brisbane</title>
+    <meta name="description" content="Restaurant-quality dining cooked in your kitchen. Private chef services for intimate dinners, weekly meals, and special occasions in Brisbane.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #e8b923;
+            --accent: #ff6b35;
+            --cream: #fefbf3;
+            --light-gray: #f7f7f7;
+            --text: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #e8b923 0%, #ff6b35 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--secondary);
+            color: var(--primary) !important;
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-badge span {
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 480px;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+
+        .hero-features span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .hero-features .icon {
+            width: 22px;
+            height: 22px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4caf50;
+            font-size: 0.75rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-card-1 {
+            bottom: 30px;
+            left: -30px;
+        }
+
+        .hero-card-2 {
+            top: 30px;
+            right: -20px;
+        }
+
+        .hero-card-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .hero-card-text strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .hero-card-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== TRUST BAR ========== */
+        .trust-bar {
+            background: var(--primary);
+            padding: 24px 0;
+        }
+
+        .trust-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+        }
+
+        .trust-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .trust-text {
+            font-size: 0.95rem;
+        }
+
+        .trust-text strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        /* ========== HOW IT WORKS ========== */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(232, 185, 35, 0.15) 0%, rgba(255, 107, 53, 0.15) 100%);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .step-card::after {
+            content: '→';
+            position: absolute;
+            right: -18px;
+            top: 50px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .step-card:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .service-card > p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .service-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .service-features span {
+            background: var(--light-gray);
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery {
+            padding: 80px 0;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            animation: scroll 40s linear infinite;
+        }
+
+        .gallery-track img {
+            width: 320px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            flex-shrink: 0;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-stats {
+            position: absolute;
+            bottom: -30px;
+            left: 30px;
+            right: 30px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .stat span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-list {
+            margin-top: 30px;
+        }
+
+        .about-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .about-list-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(232, 185, 35, 0.2) 0%, rgba(255, 107, 53, 0.2) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .about-list-item h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .about-list-item p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            border-radius: var(--radius);
+            padding: 32px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            font-family: 'DM Serif Display', serif;
+            color: var(--secondary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-stars {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .testimonial-author-info strong {
+            display: block;
+            color: var(--primary);
+        }
+
+        .testimonial-author-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== FAQ ========== */
+        .faq {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px 30px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--light-gray);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .faq-answer {
+            padding: 0 30px 24px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ========== CTA ========== */
+        .cta {
+            padding: 120px 0;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+            background-size: 200px;
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta h2 span {
+            color: var(--secondary);
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 18px 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info > p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 24px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-method-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--white);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-method strong {
+            display: block;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .contact-method span {
+            color: var(--text-muted);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #eee;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 20px;
+            display: inline-flex;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .footer h4 {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-acknowledgement {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ========== FLOATING ELEMENTS ========== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-card {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step-card::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .steps-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                position: static;
+                margin-top: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .trust-inner {
+                gap: 30px;
+            }
+
+            .gallery-track img {
+                width: 260px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">👨‍🍳</div>
+                    AskTheChef
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+                </ul>
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        🏠 <span>Brisbane's Personal Chef Service</span>
+                    </div>
+                    <h1>Restaurant-Quality Dining <span class="highlight">In Your Home</span></h1>
+                    <p class="hero-text">Your personal chef arrives, cooks a stunning meal in your kitchen, and leaves it spotless. Intimate dinners, weekly meal prep, or special celebrations.</p>
+                    <div class="hero-features">
+                        <span><div class="icon">✓</div> Not catering</span>
+                        <span><div class="icon">✓</div> Not a restaurant</span>
+                        <span><div class="icon">✓</div> Not takeaway</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Book Your Chef →</a>
+                        <a href="#services" class="btn btn-outline">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-5-e1757754877700.jpeg" alt="Private chef preparing meal" class="hero-image">
+                        <div class="hero-card hero-card-1">
+                            <div class="hero-card-icon">⭐</div>
+                            <div class="hero-card-text">
+                                <strong>98% Satisfaction</strong>
+                                <span>From happy clients</span>
+                            </div>
+                        </div>
+                        <div class="hero-card hero-card-2">
+                            <div class="hero-card-icon">👨‍🍳</div>
+                            <div class="hero-card-text">
+                                <strong>20+ Years</strong>
+                                <span>Global experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-inner">
+                <div class="trust-item">
+                    <div class="trust-icon">🌍</div>
+                    <div class="trust-text">
+                        <strong>5 Countries</strong>
+                        Culinary experience
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🍽️</div>
+                    <div class="trust-text">
+                        <strong>1M+ Meals</strong>
+                        Prepared with love
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⭐</div>
+                    <div class="trust-text">
+                        <strong>4.8 Rating</strong>
+                        Client satisfaction
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🏠</div>
+                    <div class="trust-text">
+                        <strong>In-Home Only</strong>
+                        No large events
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple Process</span>
+                <h2>We've made it very easy ❤️</h2>
+                <p>From booking to enjoying your meal — here's how it works</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Tell Me Your Vision</h3>
+                    <p>Share preferences, dietary needs, occasion, and guest count (2-12 people)</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Custom Menu</h3>
+                    <p>Receive a personalized menu crafted to your tastes and occasion</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Chef Arrives</h3>
+                    <p>I arrive at your home with fresh ingredients and cook in your kitchen</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Enjoy & Relax</h3>
+                    <p>Savor your meal while I handle everything, including cleanup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2>In-Home Dining Experiences 🍽️</h2>
+                <p>Private, personalized, and cooked fresh in your kitchen</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-badge">Most Popular</span>
+                    <span class="service-emoji">🍷</span>
+                    <h3>Private Chef Experiences</h3>
+                    <p>Transform your home into a fine dining restaurant for one magical evening.</p>
+                    <div class="service-features">
+                        <span>Romantic dinners</span>
+                        <span>Anniversaries</span>
+                        <span>Birthdays</span>
+                        <span>2-6 guests</span>
+                        <span>Multi-course</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-emoji">📅</span>
+                    <h3>Weekly In-Home Chef</h3>
+                    <p>Fresh, delicious meals prepared weekly in your kitchen, portioned and stored.</p>
+                    <div class="service-features">
+                        <span>Weekly visits</span>
+                        <span>Meal prep</span>
+                        <span>Customized menus</span>
+                        <span>Kitchen left spotless</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-emoji">👨‍👩‍👧</span>
+                    <h3>Family & Lifestyle</h3>
+                    <p>Healthy meals tailored to your family's needs and dietary requirements.</p>
+                    <div class="service-features">
+                        <span>Busy families</span>
+                        <span>Fitness meals</span>
+                        <span>Keto / Halal</span>
+                        <span>Allergies</span>
+                        <span>Kid-friendly</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-emoji">🥂</span>
+                    <h3>Small Gatherings</h3>
+                    <p>Host friends and family at home while I handle all the cooking.</p>
+                    <div class="service-features">
+                        <span>Dinner parties</span>
+                        <span>Celebrations</span>
+                        <span>Up to 12 guests</span>
+                        <span>No large events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <span class="section-tag">Our Creations</span>
+                <h2>A Taste of What Awaits 😋</h2>
+            </div>
+        </div>
+        <div class="gallery-track">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-5-e1757754877700.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-6-e1757754913214.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-7-e1757754946743.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-8-e1757755010320.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-4-e1757755104125.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-3-e1757755078841.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-2-e1757755046627.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-1.jpeg" alt="Dish">
+            <!-- Duplicate for seamless loop -->
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.43-PM-5-e1757754877700.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-6-e1757754913214.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-7-e1757754946743.jpeg" alt="Dish">
+            <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-8-e1757755010320.jpeg" alt="Dish">
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://www.askthechef.info/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-10-at-2.24.42-PM-6-e1757754913214.jpeg" alt="Chef Anthony">
+                    <div class="about-stats">
+                        <div class="stat">
+                            <strong>20+</strong>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5</strong>
+                            <span>Countries</span>
+                        </div>
+                        <div class="stat">
+                            <strong>98%</strong>
+                            <span>Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">Meet Your Chef</span>
+                    <h2>Chef Anthony — Coming to Your Kitchen</h2>
+                    <p>At AskTheChef, I believe cooking is about creating intimate experiences that bring people together. With culinary expertise from India, UAE, USA, New Zealand, and Australia, I bring restaurant-quality dining to your home.</p>
+                    <p>Unlike catering (which focuses on large events with pre-made food), I provide a personal, one-on-one experience. I cook in YOUR kitchen, using fresh ingredients, tailored to your tastes.</p>
+                    <div class="about-list">
+                        <div class="about-list-item">
+                            <div class="about-list-icon">🏠</div>
+                            <div>
+                                <h4>Cooked In Your Home</h4>
+                                <p>Fresh meals made right in your kitchen — not takeaway containers</p>
+                            </div>
+                        </div>
+                        <div class="about-list-item">
+                            <div class="about-list-icon">✨</div>
+                            <div>
+                                <h4>Kitchen Left Spotless</h4>
+                                <p>Enjoy your meal — I handle all the cleanup</p>
+                            </div>
+                        </div>
+                        <div class="about-list-item">
+                            <div class="about-list-icon">🎯</div>
+                            <div>
+                                <h4>Personalized Experience</h4>
+                                <p>One chef, focused entirely on you and your guests</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Reviews</span>
+                <h2>What Our Clients Say 🙌</h2>
+                <p>Real experiences from families who welcomed us into their homes</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Anthony cooked a beautiful anniversary dinner in our kitchen. It felt like a Michelin-star restaurant at home, but so much more personal. He even cleaned up everything!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-author-info">
+                            <strong>Sarah M.</strong>
+                            <span>Anniversary Dinner, Brisbane</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"As a busy parent, having Anthony come weekly to meal prep has been life-changing. The kids actually eat healthy food now! He's become part of our family."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MT</div>
+                        <div class="testimonial-author-info">
+                            <strong>Mark T.</strong>
+                            <span>Weekly Meal Prep Client</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"We hosted a dinner party for 8 friends. Anthony handled everything so well — we actually got to enjoy our own party for once! Highly recommend."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">LK</div>
+                        <div class="testimonial-author-info">
+                            <strong>Lisa K.</strong>
+                            <span>Dinner Party, Brisbane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about private chef services</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Is this a catering service?</div>
+                    <p class="faq-answer">No! This is completely different from catering. I come to YOUR home, cook in YOUR kitchen, and create an intimate dining experience. Catering is for large events with pre-made food — this is the opposite.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How many guests can you cook for?</div>
+                    <p class="faq-answer">I specialize in intimate gatherings, typically 2-12 guests. This service is designed for personal, high-quality experiences — not large parties or corporate events.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you bring your own ingredients?</div>
+                    <p class="faq-answer">Yes! I source fresh, high-quality ingredients and bring everything to your home. You don't need to shop or prepare anything — just be ready to enjoy.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What about dietary restrictions?</div>
+                    <p class="faq-answer">I accommodate all requirements: vegetarian, vegan, gluten-free, halal, keto, allergies, and more. Every menu is personalized to your needs.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you clean up afterwards?</div>
+                    <p class="faq-answer">Absolutely! When I leave, your kitchen will be spotless. You enjoy the meal and evening — I handle cooking and cleanup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for <span>Restaurant-Quality</span> Dining at Home?</h2>
+                <p>No restaurants to book. No traffic to deal with. Just exceptional food, cooked fresh in your own kitchen.</p>
+                <a href="#contact" class="btn btn-primary">Book Your Private Chef →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2>Let's Create Your Perfect Dining Experience</h2>
+                    <p>Whether it's a romantic dinner, weekly meal prep, or a gathering with friends — I'm here to make it unforgettable.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">📞</div>
+                            <div>
+                                <strong>Phone</strong>
+                                <span>+61 484 678 967</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">✉️</div>
+                            <div>
+                                <strong>Email</strong>
+                                <span>anthony@askthechef.info</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">📍</div>
+                            <div>
+                                <strong>Service Area</strong>
+                                <span>Brisbane & Surrounding Areas, QLD</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">⏰</div>
+                            <div>
+                                <strong>Availability</strong>
+                                <span>7 days a week, by appointment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" placeholder="Full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" placeholder="+61" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Service Type</label>
+                                <select required>
+                                    <option value="">Select...</option>
+                                    <option>Romantic Dinner (2 guests)</option>
+                                    <option>Private Chef Experience (2-6)</option>
+                                    <option>Small Gathering (up to 12)</option>
+                                    <option>Weekly Meal Prep</option>
+                                    <option>Family Cooking</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Date</label>
+                                <input type="date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tell Me About Your Vision</label>
+                            <textarea placeholder="Describe your ideal experience, dietary requirements, cuisines you love..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Booking →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">👨‍🍳</div>
+                        AskTheChef
+                    </a>
+                    <p>Personal private chef services in Brisbane. Restaurant-quality dining in the comfort of your own home — not catering, just exceptional cooking.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/askthechefau" target="_blank">FB</a>
+                        <a href="https://www.instagram.com/askthechefau" target="_blank">IG</a>
+                        <a href="http://youtube.com/askthechefau" target="_blank">YT</a>
+                        <a href="https://www.tiktok.com/@askthechefau" target="_blank">TT</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Private Chef Experiences</a></li>
+                        <li><a href="#services">Weekly In-Home Chef</a></li>
+                        <li><a href="#services">Family & Lifestyle</a></li>
+                        <li><a href="#services">Small Gatherings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Chef Anthony</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:61484678967">+61 484 678 967</a></li>
+                        <li><a href="mailto:anthony@askthechef.info">anthony@askthechef.info</a></li>
+                        <li>Brisbane, QLD 4000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Ask The Chef. All rights reserved.</p>
+                <div class="footer-acknowledgement">
+                    <img src="https://www.askthechef.info/wp-content/uploads/elementor/thumbs/Flags-rd4y7nlqm58285yybrigzoy9wxn8xxxo35h4j2ry2q.png" alt="Aboriginal and Torres Strait Islander flags" style="height: 22px;">
+                    We acknowledge the Traditional Custodians of the lands on which we operate.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=61484678967" class="float-whatsapp" target="_blank" title="Chat on WhatsApp">💬</a>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Form submit
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Chef Anthony will contact you within 24 hours.');
+        });
+    </script>
+</body>
+</html>
